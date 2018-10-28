@@ -12,11 +12,12 @@ export class NavComponent implements OnInit {
 
   // store our user name and password as type any set to an empty object using the curly braces
   model: any = {};
+  photoUrl: string;
 
   constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
-
+      this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login() {
@@ -36,6 +37,9 @@ export class NavComponent implements OnInit {
 
       logOut() {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.authService.decodedToken = null;
+        this.authService.currentUser = null;
         this.alertify.message('log out');
         this.router.navigate(['/home']);
       }

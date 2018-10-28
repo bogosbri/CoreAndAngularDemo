@@ -14,6 +14,8 @@ namespace DatingApp.API.Models
 
         public bool IsMain { get; set;}
 
+        public string PublicId { get; set;}
+
     // we added these two to get entity framework to build the schema the way we want. Instead of a restricted deleted we will
     //get a cascading delete. If a user is deleted then the photos will also be deleted
         public User User { get; set;}
