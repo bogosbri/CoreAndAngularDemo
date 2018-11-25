@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 import { AppComponent } from './app.component';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
@@ -49,7 +49,8 @@ export function tokenGetter() {
       MemberCardComponent,   // needed to add this in manually because its in a subfolder
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoPipe,
    ],
    imports: [
       BrowserModule,
